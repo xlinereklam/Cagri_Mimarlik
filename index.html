@@ -1,0 +1,352 @@
+```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Çağrı Mimarlık | Business Smart Card</title>
+    <meta name="description" content="Çağrı Mimarlık Business Smart Card - Mimari Proje, İç Mimarlık ve Tasarım">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f1ed;
+            color: #202020;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: auto;
+            padding: 24px 18px 40px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.10);
+        }
+
+        .header {
+            background: #1e1e1e;
+            color: white;
+            text-align: center;
+            padding: 42px 24px 36px;
+        }
+
+        .logo {
+            width: 92px;
+            height: 92px;
+            border-radius: 20px;
+            background: #ffffff;
+            object-fit: contain;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .company {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            margin-top: 9px;
+            font-size: 13px;
+            color: #cfcfcf;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            padding: 28px 22px 30px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .intro h2 {
+            font-size: 20px;
+            margin-bottom: 9px;
+        }
+
+        .intro p {
+            color: #777;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 13px 18px;
+            border-radius: 14px;
+            background: #f1f0ed;
+            color: #222;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            background: #e7e5e0;
+        }
+
+        .button.primary {
+            background: #1e1e1e;
+            color: #ffffff;
+        }
+
+        .button.primary:hover {
+            background: #333333;
+        }
+
+        .share {
+            margin-top: 18px;
+            width: 100%;
+            border: 0;
+            min-height: 52px;
+            border-radius: 14px;
+            background: transparent;
+            border: 1px solid #d7d4ce;
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .services {
+            margin-top: 30px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e2dc;
+        }
+
+        .services h3 {
+            text-align: center;
+            font-size: 17px;
+            margin-bottom: 17px;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+        }
+
+        .service {
+            background: #f7f6f3;
+            border-radius: 12px;
+            padding: 14px 8px;
+            text-align: center;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 0 20px 25px;
+            color: #999;
+            font-size: 11px;
+        }
+
+        @media (max-width: 360px) {
+            .company {
+                font-size: 23px;
+            }
+
+            .button {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <header class="header">
+
+            <!-- Logo dosyasını daha sonra assets/logo.png olarak ekleyeceğiz -->
+            <img
+                class="logo"
+                src="assets/logo.png"
+                alt="Çağrı Mimarlık Logo"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="company">
+                ÇAĞRI MİMARLIK
+            </div>
+
+            <div class="subtitle">
+                ARCHITECTURE • INTERIOR • DESIGN
+            </div>
+
+        </header>
+
+        <main class="content">
+
+            <section class="intro">
+
+                <h2>Çağrı Mimarlık</h2>
+
+                <p>
+                    Mimari proje, iç mimarlık ve tasarım
+                    çözümleri.
+                </p>
+
+            </section>
+
+            <section class="buttons">
+
+                <!-- Telefon -->
+                <a class="button primary" href="tel:+905XXXXXXXXX">
+                    📞 Hemen Ara
+                </a>
+
+                <!-- WhatsApp -->
+                <a
+                    class="button"
+                    href="https://wa.me/905XXXXXXXXX"
+                    target="_blank"
+                >
+                    💬 WhatsApp
+                </a>
+
+                <!-- Konum -->
+                <a
+                    class="button"
+                    href="#"
+                    target="_blank"
+                >
+                    📍 Konum
+                </a>
+
+                <!-- Web sitesi -->
+                <a
+                    class="button"
+                    href="#"
+                    target="_blank"
+                >
+                    🌐 Web Sitesi
+                </a>
+
+                <!-- Instagram -->
+                <a
+                    class="button"
+                    href="#"
+                    target="_blank"
+                >
+                    📸 Instagram
+                </a>
+
+                <!-- Portfolyo -->
+                <a
+                    class="button"
+                    href="#"
+                    target="_blank"
+                >
+                    📁 Projelerimizi İncele
+                </a>
+
+            </section>
+
+            <button class="share" onclick="shareCard()">
+                🔗 Smart Kartı Paylaş
+            </button>
+
+            <section class="services">
+
+                <h3>Hizmetler</h3>
+
+                <div class="service-list">
+
+                    <div class="service">
+                        Mimari Proje
+                    </div>
+
+                    <div class="service">
+                        İç Mimarlık
+                    </div>
+
+                    <div class="service">
+                        3D Tasarım
+                    </div>
+
+                    <div class="service">
+                        Uygulama
+                    </div>
+
+                    <div class="service">
+                        Villa Projeleri
+                    </div>
+
+                    <div class="service">
+                        Ticari Mekânlar
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            Çağrı Mimarlık Business Smart Card
+        </footer>
+
+    </div>
+
+</div>
+
+<script>
+
+function shareCard() {
+
+    const shareData = {
+        title: "Çağrı Mimarlık",
+        text: "Çağrı Mimarlık Business Smart Card",
+        url: window.location.href
+    };
+
+    if (navigator.share) {
+
+        navigator.share(shareData).catch(() => {});
+
+    } else {
+
+        navigator.clipboard.writeText(window.location.href);
+
+        alert("Kart bağlantısı kopyalandı.");
+
+    }
+}
+
+</script>
+
+</body>
+</html>
+```
