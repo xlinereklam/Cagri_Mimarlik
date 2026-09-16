@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="tr">
 <head>
 
@@ -29,32 +30,17 @@ html{
 }
 
 body{
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family:Arial, Helvetica, sans-serif;
     background:#d8d5cf;
     color:#202020;
-
     min-height:100vh;
-
     overflow-x:hidden;
 }
 
-
-/* =========================================================
-   SAYFA ARKA PLANI
-========================================================= */
-
 body::before{
-
     content:"";
-
     position:fixed;
-
     inset:0;
-
     z-index:-5;
 
     background:
@@ -68,26 +54,18 @@ body::before{
             rgba(180,175,165,.45),
             transparent 40%
         );
-
 }
 
 
 /* =========================================================
-   ANA KONTEYNER
+   KONTEYNER
 ========================================================= */
 
 .container{
-
     width:100%;
-
     max-width:520px;
-
     margin:auto;
-
-    padding:
-        18px
-        14px
-        45px;
+    padding:18px 14px 45px;
 }
 
 
@@ -96,56 +74,42 @@ body::before{
 ========================================================= */
 
 .card{
-
     background:#f7f6f2;
-
     border-radius:30px;
-
     overflow:hidden;
-
     position:relative;
 
     box-shadow:
         0 35px 90px rgba(0,0,0,.28),
         0 8px 30px rgba(0,0,0,.12);
 
-    border:
-        1px solid rgba(255,255,255,.8);
+    border:1px solid rgba(255,255,255,.8);
 }
 
 
 /* =========================================================
-   ÜST HERO
+   HERO
 ========================================================= */
 
 .hero{
-
     height:445px;
-
     position:relative;
-
     overflow:hidden;
-
     color:white;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     text-align:center;
 }
 
 
 /* =========================================================
-   HERO SLAYTLARI
+   HERO FOTOĞRAFLARI
 ========================================================= */
 
 .hero-slide{
-
     position:absolute;
-
     inset:0;
 
     width:100%;
@@ -208,7 +172,6 @@ body::before{
     100%{
         opacity:0;
     }
-
 }
 
 
@@ -217,13 +180,10 @@ body::before{
 ========================================================= */
 
 .hero-overlay{
-
     position:absolute;
-
     inset:0;
 
     background:
-
         linear-gradient(
             180deg,
             rgba(0,0,0,.52) 0%,
@@ -236,19 +196,14 @@ body::before{
 
 
 /* =========================================================
-   MİMARİ ÇİZGİ DETAYLARI
+   MİMARİ GRID
 ========================================================= */
 
 .hero-grid{
-
     position:absolute;
-
     inset:0;
-
     z-index:3;
-
     pointer-events:none;
-
     opacity:.15;
 
     background-image:
@@ -264,8 +219,7 @@ body::before{
             transparent 1px
         );
 
-    background-size:
-        70px 70px;
+    background-size:70px 70px;
 }
 
 
@@ -274,17 +228,10 @@ body::before{
 ========================================================= */
 
 .hero-content{
-
     position:relative;
-
     z-index:5;
-
     width:100%;
-
-    padding:
-        35px
-        25px
-        30px;
+    padding:35px 25px 30px;
 }
 
 
@@ -293,7 +240,6 @@ body::before{
 ========================================================= */
 
 .logo{
-
     width:108px;
     height:108px;
 
@@ -316,15 +262,12 @@ body::before{
 
 
 /* =========================================================
-   ŞİRKET ADI
+   ŞİRKET
 ========================================================= */
 
 .company{
-
     font-size:29px;
-
     font-weight:600;
-
     letter-spacing:2.5px;
 
     text-shadow:
@@ -337,7 +280,6 @@ body::before{
 ========================================================= */
 
 .subtitle{
-
     margin-top:11px;
 
     font-size:11px;
@@ -353,7 +295,6 @@ body::before{
 ========================================================= */
 
 .person{
-
     margin-top:16px;
 
     font-family:
@@ -368,7 +309,7 @@ body::before{
 
     font-weight:400;
 
-    color:#ffffff;
+    color:#fff;
 
     letter-spacing:.5px;
 
@@ -378,22 +319,17 @@ body::before{
 
 
 /* =========================================================
-   HERO ALT ÇİZGİ
+   HERO ÇİZGİ
 ========================================================= */
 
 .hero-line{
-
     width:55px;
-
     height:1px;
 
     background:
         rgba(255,255,255,.8);
 
-    margin:
-        22px
-        auto
-        0;
+    margin:22px auto 0;
 }
 
 
@@ -402,7 +338,6 @@ body::before{
 ========================================================= */
 
 .content{
-
     position:relative;
 
     padding:
@@ -411,7 +346,6 @@ body::before{
         32px;
 
     background:
-
         linear-gradient(
             rgba(250,249,246,.96),
             rgba(244,243,239,.96)
@@ -422,15 +356,13 @@ body::before{
 
 
 /* =========================================================
-   MİMARİ GRID
+   GRID
 ========================================================= */
 
 .content::before{
-
     content:"";
 
     position:absolute;
-
     inset:0;
 
     pointer-events:none;
@@ -450,8 +382,7 @@ body::before{
             transparent 1px
         );
 
-    background-size:
-        55px 55px;
+    background-size:55px 55px;
 }
 
 
@@ -460,7 +391,6 @@ body::before{
 ========================================================= */
 
 .content::after{
-
     content:"";
 
     position:absolute;
@@ -472,7 +402,6 @@ body::before{
     height:240px;
 
     border:
-
         1px solid
         rgba(40,40,40,.10);
 
@@ -487,9 +416,7 @@ body::before{
 ========================================================= */
 
 .intro{
-
     position:relative;
-
     z-index:2;
 
     text-align:left;
@@ -502,9 +429,7 @@ body::before{
         2px solid #3b3b3b;
 }
 
-
 .intro-small{
-
     font-size:10px;
 
     letter-spacing:3px;
@@ -514,9 +439,7 @@ body::before{
     margin-bottom:8px;
 }
 
-
 .intro h2{
-
     font-size:22px;
 
     font-weight:600;
@@ -526,9 +449,7 @@ body::before{
     margin-bottom:9px;
 }
 
-
 .intro p{
-
     color:#777;
 
     line-height:1.65;
@@ -540,43 +461,42 @@ body::before{
 
 
 /* =========================================================
-   BUTONLAR
+   BUTON ALANI
 ========================================================= */
 
 .buttons{
-
     position:relative;
-
     z-index:2;
 
     display:flex;
-
     flex-direction:column;
 
     gap:10px;
 }
 
 
-.button{
+/* =========================================================
+   BUTON
+========================================================= */
 
+.button{
     position:relative;
 
     display:flex;
 
     align-items:center;
-
     justify-content:space-between;
 
     min-height:58px;
 
     padding:
         12px
-        18px;
+        17px;
 
     border-radius:15px;
 
     background:
-        rgba(255,255,255,.72);
+        rgba(255,255,255,.76);
 
     border:
         1px solid
@@ -602,26 +522,22 @@ body::before{
 }
 
 
-/* Sol mimari çizgi */
+/* SOL ÇİZGİ */
 
 .button::before{
-
     content:"";
 
     position:absolute;
 
     left:0;
-
     top:0;
-
     bottom:0;
 
     width:3px;
 
     background:#303030;
 
-    transform:
-        scaleY(0);
+    transform:scaleY(0);
 
     transform-origin:center;
 
@@ -629,10 +545,9 @@ body::before{
 }
 
 
-/* Sağ ok */
+/* SAĞ OK */
 
 .button::after{
-
     content:"↗";
 
     font-size:17px;
@@ -642,11 +557,8 @@ body::before{
     transition:.25s ease;
 }
 
-
 .button:hover{
-
-    transform:
-        translateX(3px);
+    transform:translateX(3px);
 
     background:#fff;
 
@@ -654,16 +566,11 @@ body::before{
         0 10px 25px rgba(0,0,0,.09);
 }
 
-
 .button:hover::before{
-
-    transform:
-        scaleY(1);
+    transform:scaleY(1);
 }
 
-
 .button:hover::after{
-
     transform:
         translate(3px,-3px);
 
@@ -671,10 +578,52 @@ body::before{
 }
 
 
-/* ANA BUTON */
+/* =========================================================
+   BUTON İÇ YAPISI
+========================================================= */
+
+.button-content{
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+}
+
+
+/* =========================================================
+   SVG İKONLAR
+========================================================= */
+
+.icon{
+    width:21px;
+    height:21px;
+
+    flex-shrink:0;
+
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:1.6;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+
+    color:#4a4a4a;
+}
+
+.primary .icon{
+    color:#fff;
+}
+
+
+/* =========================================================
+   ANA BUTON
+========================================================= */
 
 .button.primary{
-
     background:
         linear-gradient(
             135deg,
@@ -692,16 +641,30 @@ body::before{
         0 12px 30px rgba(0,0,0,.20);
 }
 
-
 .button.primary::before{
-
     background:#fff;
 }
 
-
 .button.primary::after{
-
     color:#ccc;
+}
+
+
+/* =========================================================
+   İKİLİ ÖNEMLİ BUTONLAR
+========================================================= */
+
+.button-row{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+}
+
+.button-row .button{
+    min-height:56px;
 }
 
 
@@ -710,7 +673,6 @@ body::before{
 ========================================================= */
 
 .share{
-
     position:relative;
 
     z-index:2;
@@ -739,11 +701,17 @@ body::before{
     cursor:pointer;
 
     transition:.25s ease;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:11px;
 }
 
-
 .share:hover{
-
     background:#fff;
 
     transform:
@@ -755,11 +723,10 @@ body::before{
 
 
 /* =========================================================
-   HİZMETLER BAŞLIK
+   HİZMETLER
 ========================================================= */
 
 .services{
-
     position:relative;
 
     z-index:2;
@@ -775,7 +742,6 @@ body::before{
 
 
 .services-heading{
-
     display:flex;
 
     align-items:flex-end;
@@ -785,9 +751,7 @@ body::before{
     margin-bottom:18px;
 }
 
-
 .services-heading-left{
-
     display:flex;
 
     flex-direction:column;
@@ -795,9 +759,7 @@ body::before{
     gap:5px;
 }
 
-
 .services-label{
-
     font-size:9px;
 
     letter-spacing:3px;
@@ -805,9 +767,7 @@ body::before{
     color:#999;
 }
 
-
 .services-title{
-
     font-size:21px;
 
     font-weight:600;
@@ -815,9 +775,7 @@ body::before{
     color:#222;
 }
 
-
 .services-count{
-
     font-size:10px;
 
     letter-spacing:1px;
@@ -831,7 +789,6 @@ body::before{
 ========================================================= */
 
 .services-window{
-
     position:relative;
 
     overflow:hidden;
@@ -843,9 +800,7 @@ body::before{
         4px 22px 15px;
 }
 
-
 .services-track{
-
     display:flex;
 
     gap:13px;
@@ -859,9 +814,7 @@ body::before{
         infinite;
 }
 
-
 .services-track:hover{
-
     animation-play-state:paused;
 }
 
@@ -884,7 +837,6 @@ body::before{
 ========================================================= */
 
 .service-card{
-
     width:245px;
 
     min-height:155px;
@@ -917,14 +869,10 @@ body::before{
 }
 
 
-/* Hizmet numarası */
-
 .service-number{
-
     position:absolute;
 
     top:16px;
-
     right:18px;
 
     font-size:10px;
@@ -935,16 +883,12 @@ body::before{
 }
 
 
-/* Dekoratif mimari çizgi */
-
 .service-card::before{
-
     content:"";
 
     position:absolute;
 
     right:-35px;
-
     bottom:-45px;
 
     width:130px;
@@ -959,17 +903,14 @@ body::before{
 
 
 .service-card::after{
-
     content:"";
 
     position:absolute;
 
     right:35px;
-
     bottom:35px;
 
     width:50px;
-
     height:1px;
 
     background:
@@ -978,7 +919,6 @@ body::before{
 
 
 .service-card h4{
-
     font-size:18px;
 
     font-weight:600;
@@ -992,7 +932,6 @@ body::before{
 
 
 .service-card p{
-
     font-size:11px;
 
     line-height:1.6;
@@ -1008,7 +947,6 @@ body::before{
 ========================================================= */
 
 .footer{
-
     position:relative;
 
     z-index:2;
@@ -1027,15 +965,8 @@ body::before{
     letter-spacing:1px;
 }
 
-
-/* =========================================================
-   ALT MARKA ÇİZGİSİ
-========================================================= */
-
 .footer-line{
-
     width:35px;
-
     height:1px;
 
     background:#bbb;
@@ -1048,74 +979,280 @@ body::before{
 
 
 /* =========================================================
+   MODAL - TEKLİF AL
+========================================================= */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(10,10,10,.72);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    z-index:100;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+}
+
+.modal.active{
+    opacity:1;
+
+    visibility:visible;
+}
+
+
+.modal-box{
+    width:100%;
+
+    max-width:500px;
+
+    background:
+        #f7f6f2;
+
+    border-radius:
+        28px
+        28px
+        0
+        0;
+
+    padding:
+        27px
+        22px
+        30px;
+
+    transform:
+        translateY(40px);
+
+    transition:
+        transform .35s ease;
+
+    box-shadow:
+        0 -20px 60px rgba(0,0,0,.25);
+}
+
+.modal.active .modal-box{
+    transform:
+        translateY(0);
+}
+
+
+.modal-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:22px;
+}
+
+
+.modal-label{
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:#999;
+
+    margin-bottom:6px;
+}
+
+
+.modal-title{
+    font-size:23px;
+
+    font-weight:600;
+}
+
+
+.close-modal{
+    width:36px;
+    height:36px;
+
+    border-radius:50%;
+
+    border:
+        1px solid #ddd;
+
+    background:#fff;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:#555;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group{
+    margin-bottom:14px;
+}
+
+.form-group label{
+    display:block;
+
+    font-size:11px;
+
+    color:#666;
+
+    margin-bottom:7px;
+
+    letter-spacing:.3px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    border:
+        1px solid #ddd9d2;
+
+    background:#fff;
+
+    border-radius:12px;
+
+    padding:
+        13px
+        14px;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    font-size:14px;
+
+    color:#222;
+
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    border-color:#555;
+}
+
+.form-group textarea{
+
+    min-height:85px;
+
+    resize:vertical;
+}
+
+
+.quote-button{
+
+    width:100%;
+
+    min-height:55px;
+
+    border:0;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #191919,
+            #363636
+        );
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    margin-top:4px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+}
+
+
+/* =========================================================
    MOBİL
 ========================================================= */
 
 @media(max-width:480px){
 
     .container{
-
         padding:
             8px
             7px
             30px;
     }
 
-
     .card{
-
         border-radius:25px;
     }
 
-
     .hero{
-
         height:410px;
     }
 
-
     .logo{
-
         width:94px;
         height:94px;
 
         border-radius:23px;
     }
 
-
     .company{
-
         font-size:24px;
 
         letter-spacing:1.8px;
     }
 
-
     .subtitle{
-
         font-size:9px;
 
         letter-spacing:2.3px;
     }
 
-
     .person{
-
         font-size:28px;
     }
 
-
     .content{
-
         padding:
             30px
             18px
             28px;
     }
 
-
     .services-window{
-
         margin:
             0 -18px;
 
@@ -1123,12 +1260,21 @@ body::before{
         padding-right:18px;
     }
 
-
     .service-card{
-
         width:230px;
 
         min-height:150px;
+    }
+
+    .button-row{
+        grid-template-columns:
+            1fr;
+    }
+
+    .modal-box{
+        max-height:92vh;
+
+        overflow-y:auto;
     }
 
 }
@@ -1137,41 +1283,30 @@ body::before{
 @media(max-width:360px){
 
     .hero{
-
         height:390px;
     }
 
-
     .company{
-
         font-size:21px;
     }
 
-
     .subtitle{
-
         font-size:8px;
 
         letter-spacing:1.8px;
     }
 
-
     .person{
-
         font-size:25px;
     }
 
-
     .button{
-
         min-height:54px;
 
         font-size:14px;
     }
 
-
     .service-card{
-
         width:215px;
     }
 
@@ -1196,14 +1331,11 @@ body::before{
 
 </head>
 
-
 <body>
-
 
 <div class="container">
 
 <div class="card">
-
 
 <!-- =====================================================
      HERO
@@ -1211,84 +1343,69 @@ body::before{
 
 <header class="hero">
 
+```
+<img
+    class="hero-slide"
+    src="assets/cagri01.png"
+    alt=""
+>
 
-    <!-- PROJE GÖRSELLERİ -->
+<img
+    class="hero-slide"
+    src="assets/cagri02.png"
+    alt=""
+>
+
+<img
+    class="hero-slide"
+    src="assets/cagri03.png"
+    alt=""
+>
+
+<img
+    class="hero-slide"
+    src="assets/cagri04.png"
+    alt=""
+>
+
+
+<div class="hero-overlay"></div>
+
+<div class="hero-grid"></div>
+
+
+<div class="hero-content">
+
 
     <img
-        class="hero-slide"
-        src="assets/cagri01.png"
-        alt=""
-    >
-
-    <img
-        class="hero-slide"
-        src="assets/cagri02.png"
-        alt=""
-    >
-
-    <img
-        class="hero-slide"
-        src="assets/cagri03.png"
-        alt=""
-    >
-
-    <img
-        class="hero-slide"
-        src="assets/cagri04.png"
-        alt=""
+        class="logo"
+        src="assets/cagri-mimarlik-logo.png"
+        alt="Çağrı Mimarlık Logo"
     >
 
 
-    <!-- KARARTMA -->
-
-    <div class="hero-overlay"></div>
-
-
-    <!-- MİMARİ GRID -->
-
-    <div class="hero-grid"></div>
-
-
-    <!-- HERO İÇERİK -->
-
-    <div class="hero-content">
-
-
-        <img
-            class="logo"
-            src="assets/cagri-mimarlik-logo.png"
-            alt="Çağrı Mimarlık Logo"
-        >
-
-
-        <div class="company">
-
-            ÇAĞRI MİMARLIK
-
-        </div>
-
-
-        <div class="subtitle">
-
-            ARCHITECTURE • INTERIOR • DESIGN
-
-        </div>
-
-
-        <div class="person">
-
-            Burak Çağrı
-
-        </div>
-
-
-        <div class="hero-line"></div>
-
-
+    <div class="company">
+        ÇAĞRI MİMARLIK
     </div>
 
-</header>
 
+    <div class="subtitle">
+        ARCHITECTURE • INTERIOR • DESIGN
+    </div>
+
+
+    <div class="person">
+        Burak Çağrı
+    </div>
+
+
+    <div class="hero-line"></div>
+
+
+</div>
+```
+
+</header>
 
 <!-- =====================================================
      İÇERİK
@@ -1296,425 +1413,659 @@ body::before{
 
 <main class="content">
 
+<section class="intro">
 
-    <!-- INTRO -->
+```
+<div class="intro-small">
+    ABOUT THE STUDIO
+</div>
 
-    <section class="intro">
+<h2>
+    Mekâna Değer Katan Tasarım
+</h2>
 
-        <div class="intro-small">
+<p>
+    Mimari proje, iç mimarlık ve uygulama
+    süreçlerini estetik, işlevsellik ve
+    özgün tasarım anlayışıyla bir araya getiriyoruz.
+</p>
+```
 
-            ABOUT THE STUDIO
+</section>
 
-        </div>
+<!-- =====================================================
+     AKSİYONLAR
+===================================================== -->
 
+<section class="buttons">
 
-        <h2>
+```
+<!-- HEMEN ARA -->
 
-            Mekâna Değer Katan Tasarım
+<a
+    class="button primary"
+    href="tel:+905XXXXXXXXX"
+>
 
-        </h2>
+    <span class="button-content">
 
+        <svg class="icon" viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+            19.79 19.79 0 0 1-8.63-3.07
+            19.5 19.5 0 0 1-6-6
+            A19.79 19.79 0 0 1 2.12 4.18
+            2 2 0 0 1 4.11 2h3
+            a2 2 0 0 1 2 1.72
+            12.84 12.84 0 0 0 .7 2.81
+            2 2 0 0 1-.45 2.11L8.09 9.91
+            a16 16 0 0 0 6 6l1.27-1.27
+            a2 2 0 0 1 2.11-.45
+            12.84 12.84 0 0 0 2.81.7
+            A2 2 0 0 1 22 16.92z"/>
+        </svg>
 
-        <p>
+        <span>Hemen Ara</span>
 
-            Mimari proje, iç mimarlık ve uygulama
-            süreçlerini estetik, işlevsellik ve
-            özgün tasarım anlayışıyla bir araya getiriyoruz.
+    </span>
 
-        </p>
+</a>
 
-    </section>
 
+<!-- REHBER -->
 
-    <!-- =================================================
-         BUTONLAR
-    ================================================= -->
+<a
+    class="button"
+    href="#"
+    onclick="saveContact(event)"
+>
 
-    <section class="buttons">
+    <span class="button-content">
 
+        <svg class="icon" viewBox="0 0 24 24">
 
-        <a
-            class="button primary"
-            href="tel:+905XXXXXXXXX"
-        >
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
 
-            <span>📞 &nbsp; Hemen Ara</span>
+            <circle cx="9" cy="10" r="2.2"/>
 
-        </a>
+            <path d="M6.5 16c.7-2.1 4.3-2.1 5 0"/>
 
+            <path d="M15 9h3M15 12h3M15 15h2"/>
 
-        <a
-            class="button"
-            href="https://wa.me/905XXXXXXXXX"
-            target="_blank"
-        >
+        </svg>
 
-            <span>💬 &nbsp; WhatsApp</span>
+        <span>Rehbere Kaydet</span>
 
-        </a>
+    </span>
 
+</a>
 
-        <a
-            class="button"
-            href="#"
-            target="_blank"
-        >
 
-            <span>📍 &nbsp; Konum</span>
+<!-- WHATSAPP -->
 
-        </a>
+<a
+    class="button"
+    href="https://wa.me/905XXXXXXXXX"
+    target="_blank"
+>
 
+    <span class="button-content">
 
-        <a
-            class="button"
-            href="#"
-            target="_blank"
-        >
+        <svg class="icon" viewBox="0 0 24 24">
 
-            <span>🌐 &nbsp; Web Sitesi</span>
+            <path d="M20 11.5a8 8 0 0 1-11.8 7
+            L4 20l1.5-4.1
+            A8 8 0 1 1 20 11.5z"/>
 
-        </a>
+            <path d="M8.5 8.5c.3-.6.7-.6 1-.1
+            l.7 1c.2.3.2.6 0 .9
+            l-.5.5
+            c.8 1.4 1.9 2.5 3.3 3.3
+            l.5-.5c.3-.2.6-.2.9 0
+            l1 .7c.5.3.5.7-.1 1
+            -.5.5-1.3.7-2.1.4
+            -2.4-.9-4.5-3-5.4-5.4
+            -.3-.8-.1-1.6.4-2.1z"/>
 
+        </svg>
 
-        <a
-            class="button"
-            href="#"
-            target="_blank"
-        >
+        <span>WhatsApp</span>
 
-            <span>📸 &nbsp; Instagram</span>
+    </span>
 
-        </a>
+</a>
 
 
-        <a
-            class="button"
-            href="#"
-            target="_blank"
-        >
+<!-- TEKLİF -->
 
-            <span>📁 &nbsp; Projelerimizi İncele</span>
+<a
+    class="button"
+    href="#"
+    onclick="openQuote(event)"
+>
 
-        </a>
+    <span class="button-content">
 
+        <svg class="icon" viewBox="0 0 24 24">
 
-    </section>
+            <path d="M14 2H6a2 2 0 0 0-2 2v16
+            a2 2 0 0 0 2 2h12
+            a2 2 0 0 0 2-2V8z"/>
 
+            <path d="M14 2v6h6"/>
 
-    <!-- =================================================
-         PAYLAŞ
-    ================================================= -->
+            <path d="M8 13h8M8 17h5"/>
 
-    <button
-        class="share"
-        onclick="shareCard()"
-    >
+            <path d="M16.5 18.5l3-3
+            1.5 1.5-3 3-2 .5z"/>
 
-        🔗 &nbsp; Smart Kartı Paylaş
+        </svg>
 
-    </button>
+        <span>Teklif Al</span>
 
+    </span>
 
-    <!-- =================================================
-         HİZMETLER
-    ================================================= -->
+</a>
 
-    <section class="services">
 
+<!-- OFİS -->
 
-        <div class="services-heading">
+<a
+    class="button"
+    href="#"
+    target="_blank"
+>
 
+    <span class="button-content">
 
-            <div class="services-heading-left">
+        <svg class="icon" viewBox="0 0 24 24">
 
-                <div class="services-label">
+            <path d="M12 21s7-6.1 7-12
+            a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"/>
 
-                    WHAT WE DO
+            <circle cx="12" cy="9" r="2.5"/>
 
-                </div>
+        </svg>
 
+        <span>Ofis Yol Tarifi</span>
 
-                <div class="services-title">
+    </span>
 
-                    Hizmetlerimiz
+</a>
 
-                </div>
 
-            </div>
+<!-- WEB -->
 
+<a
+    class="button"
+    href="#"
+    target="_blank"
+>
 
-            <div class="services-count">
+    <span class="button-content">
 
-                06 SERVICES
+        <svg class="icon" viewBox="0 0 24 24">
 
-            </div>
+            <circle cx="12" cy="12" r="9"/>
 
+            <path d="M3 12h18"/>
 
-        </div>
+            <path d="M12 3
+            c2.2 2.4 3.3 5.4 3.3 9
+            s-1.1 6.6-3.3 9"/>
 
+            <path d="M12 3
+            C9.8 5.4 8.7 8.4 8.7 12
+            S9.8 18.6 12 21"/>
 
-        <!-- HİZMET SLIDER -->
+        </svg>
 
-        <div class="services-window">
+        <span>Web Sitesi</span>
 
+    </span>
 
-            <div class="services-track">
+</a>
 
 
-                <!-- 01 -->
+<!-- INSTAGRAM -->
 
-                <div class="service-card">
+<a
+    class="button"
+    href="#"
+    target="_blank"
+>
 
-                    <div class="service-number">
-                        01 / 06
-                    </div>
+    <span class="button-content">
 
-                    <h4>
-                        Mimari Proje
-                    </h4>
+        <svg class="icon" viewBox="0 0 24 24">
 
-                    <p>
-                        Konut ve ticari yapılar için
-                        özgün, işlevsel ve estetik
-                        mimari proje çözümleri.
-                    </p>
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
 
-                </div>
+            <circle cx="12" cy="12" r="4"/>
 
+            <circle
+                cx="17.5"
+                cy="6.5"
+                r=".7"
+                fill="currentColor"
+                stroke="none"
+            />
 
-                <!-- 02 -->
+        </svg>
 
-                <div class="service-card">
+        <span>Instagram</span>
 
-                    <div class="service-number">
-                        02 / 06
-                    </div>
+    </span>
 
-                    <h4>
-                        İç Mimarlık
-                    </h4>
+</a>
 
-                    <p>
-                        Mekânın karakterini ortaya
-                        çıkaran modern ve bütünsel
-                        iç mimari tasarımlar.
-                    </p>
 
-                </div>
+<!-- PROJELER -->
 
+<a
+    class="button"
+    href="#"
+    target="_blank"
+>
 
-                <!-- 03 -->
+    <span class="button-content">
 
-                <div class="service-card">
+        <svg class="icon" viewBox="0 0 24 24">
 
-                    <div class="service-number">
-                        03 / 06
-                    </div>
+            <path d="M3 6h6l2 2h10
+            v10a2 2 0 0 1-2 2H5
+            a2 2 0 0 1-2-2z"/>
 
-                    <h4>
-                        3D Tasarım
-                    </h4>
+            <path d="M3 8h18"/>
 
-                    <p>
-                        Projenizi uygulama öncesinde
-                        gerçekçi üç boyutlu görsellerle
-                        deneyimleyin.
-                    </p>
+            <path d="M7 12h10M7 16h7"/>
 
-                </div>
+        </svg>
 
+        <span>Projelerimiz</span>
 
-                <!-- 04 -->
+    </span>
 
-                <div class="service-card">
+</a>
 
-                    <div class="service-number">
-                        04 / 06
-                    </div>
 
-                    <h4>
-                        Uygulama
-                    </h4>
+<!-- GOOGLE DEĞERLENDİRME -->
 
-                    <p>
-                        Tasarımın sahaya doğru şekilde
-                        aktarılması için profesyonel
-                        uygulama çözümleri.
-                    </p>
+<a
+    class="button"
+    href="#"
+    target="_blank"
+>
 
-                </div>
+    <span class="button-content">
 
+        <svg class="icon" viewBox="0 0 24 24">
 
-                <!-- 05 -->
+            <path d="M12 3l2.8 5.7
+            6.2.9-4.5 4.4
+            1.1 6.2L12 17.2
+            6.4 20.2
+            7.5 14 3 9.6
+            9.2 8.7z"/>
 
-                <div class="service-card">
+        </svg>
 
-                    <div class="service-number">
-                        05 / 06
-                    </div>
+        <span>Google'da Bizi Değerlendirin</span>
 
-                    <h4>
-                        Villa Projeleri
-                    </h4>
+    </span>
 
-                    <p>
-                        Yaşam biçimine göre tasarlanan
-                        özgün villa ve müstakil konut
-                        projeleri.
-                    </p>
+</a>
 
-                </div>
 
+<!-- RANDEVU -->
 
-                <!-- 06 -->
+<a
+    class="button"
+    href="https://wa.me/905XXXXXXXXX?text=Merhaba%2C%20%C3%87a%C4%9Fr%C4%B1%20Mimarl%C4%B1k%20ile%20proje%20g%C3%B6r%C3%BC%C5%9Fmesi%20i%C3%A7in%20randevu%20talep%20etmek%20istiyorum."
+    target="_blank"
+>
 
-                <div class="service-card">
+    <span class="button-content">
 
-                    <div class="service-number">
-                        06 / 06
-                    </div>
+        <svg class="icon" viewBox="0 0 24 24">
 
-                    <h4>
-                        Ticari Mekânlar
-                    </h4>
+            <rect x="3" y="4" width="18" height="17" rx="2"/>
 
-                    <p>
-                        Marka kimliğini mekâna taşıyan
-                        mağaza, ofis, restoran ve
-                        ticari alan tasarımları.
-                    </p>
+            <path d="M7 2v4M17 2v4M3 9h18"/>
 
-                </div>
+            <path d="M8 13h3M8 17h6"/>
 
+        </svg>
 
-                <!-- =================================================
-                     SLIDERIN KESİNTİSİZ DEVAMI İÇİN TEKRAR
-                ================================================= -->
+        <span>Randevu Talep Et</span>
 
+    </span>
 
-                <div class="service-card">
+</a>
+```
 
-                    <div class="service-number">
-                        01 / 06
-                    </div>
+</section>
 
-                    <h4>
-                        Mimari Proje
-                    </h4>
+<!-- =====================================================
+     SMART KART PAYLAŞ
+===================================================== -->
 
-                    <p>
-                        Konut ve ticari yapılar için
-                        özgün, işlevsel ve estetik
-                        mimari proje çözümleri.
-                    </p>
+<button
+class="share"
+onclick="shareCard()"
 
-                </div>
+>
 
+```
+<svg class="icon" viewBox="0 0 24 24">
 
-                <div class="service-card">
+    <circle cx="18" cy="5" r="2.5"/>
 
-                    <div class="service-number">
-                        02 / 06
-                    </div>
+    <circle cx="6" cy="12" r="2.5"/>
 
-                    <h4>
-                        İç Mimarlık
-                    </h4>
+    <circle cx="18" cy="19" r="2.5"/>
 
-                    <p>
-                        Mekânın karakterini ortaya
-                        çıkaran modern ve bütünsel
-                        iç mimari tasarımlar.
-                    </p>
+    <path d="M8.3 10.8l7.4-4.6M8.3 13.2l7.4 4.6"/>
 
-                </div>
+</svg>
 
+<span>Smart Kartı Paylaş</span>
+```
 
-                <div class="service-card">
+</button>
 
-                    <div class="service-number">
-                        03 / 06
-                    </div>
+<!-- =====================================================
+     HİZMETLER
+===================================================== -->
 
-                    <h4>
-                        3D Tasarım
-                    </h4>
+<section class="services">
 
-                    <p>
-                        Projenizi uygulama öncesinde
-                        gerçekçi üç boyutlu görsellerle
-                        deneyimleyin.
-                    </p>
+<div class="services-heading">
 
-                </div>
+```
+<div class="services-heading-left">
 
+    <div class="services-label">
+        WHAT WE DO
+    </div>
 
-                <div class="service-card">
+    <div class="services-title">
+        Hizmetlerimiz
+    </div>
 
-                    <div class="service-number">
-                        04 / 06
-                    </div>
+</div>
 
-                    <h4>
-                        Uygulama
-                    </h4>
+<div class="services-count">
+    06 SERVICES
+</div>
+```
 
-                    <p>
-                        Tasarımın sahaya doğru şekilde
-                        aktarılması için profesyonel
-                        uygulama çözümleri.
-                    </p>
+</div>
 
-                </div>
+<div class="services-window">
 
+<div class="services-track">
 
-                <div class="service-card">
+<!-- 01 -->
 
-                    <div class="service-number">
-                        05 / 06
-                    </div>
+<div class="service-card">
 
-                    <h4>
-                        Villa Projeleri
-                    </h4>
+```
+<div class="service-number">
+    01 / 06
+</div>
 
-                    <p>
-                        Yaşam biçimine göre tasarlanan
-                        özgün villa ve müstakil konut
-                        projeleri.
-                    </p>
+<h4>
+    Mimari Proje
+</h4>
 
-                </div>
+<p>
+    Konut ve ticari yapılar için
+    özgün, işlevsel ve estetik
+    mimari proje çözümleri.
+</p>
+```
 
+</div>
 
-                <div class="service-card">
+<!-- 02 -->
 
-                    <div class="service-number">
-                        06 / 06
-                    </div>
+<div class="service-card">
 
-                    <h4>
-                        Ticari Mekânlar
-                    </h4>
+```
+<div class="service-number">
+    02 / 06
+</div>
 
-                    <p>
-                        Marka kimliğini mekâna taşıyan
-                        mağaza, ofis, restoran ve
-                        ticari alan tasarımları.
-                    </p>
+<h4>
+    İç Mimarlık
+</h4>
 
-                </div>
+<p>
+    Mekânın karakterini ortaya
+    çıkaran modern ve bütünsel
+    iç mimari tasarımlar.
+</p>
+```
 
+</div>
 
-            </div>
+<!-- 03 -->
 
-        </div>
+<div class="service-card">
 
-    </section>
+```
+<div class="service-number">
+    03 / 06
+</div>
 
+<h4>
+    3D Tasarım
+</h4>
+
+<p>
+    Projenizi uygulama öncesinde
+    gerçekçi üç boyutlu görsellerle
+    deneyimleyin.
+</p>
+```
+
+</div>
+
+<!-- 04 -->
+
+<div class="service-card">
+
+```
+<div class="service-number">
+    04 / 06
+</div>
+
+<h4>
+    Uygulama
+</h4>
+
+<p>
+    Tasarımın sahaya doğru şekilde
+    aktarılması için profesyonel
+    uygulama çözümleri.
+</p>
+```
+
+</div>
+
+<!-- 05 -->
+
+<div class="service-card">
+
+```
+<div class="service-number">
+    05 / 06
+</div>
+
+<h4>
+    Villa Projeleri
+</h4>
+
+<p>
+    Yaşam biçimine göre tasarlanan
+    özgün villa ve müstakil konut
+    projeleri.
+</p>
+```
+
+</div>
+
+<!-- 06 -->
+
+<div class="service-card">
+
+```
+<div class="service-number">
+    06 / 06
+</div>
+
+<h4>
+    Ticari Mekânlar
+</h4>
+
+<p>
+    Marka kimliğini mekâna taşıyan
+    mağaza, ofis, restoran ve
+    ticari alan tasarımları.
+</p>
+```
+
+</div>
+
+<!-- TEKRAR -->
+
+<div class="service-card">
+
+```
+<div class="service-number">
+    01 / 06
+</div>
+
+<h4>
+    Mimari Proje
+</h4>
+
+<p>
+    Konut ve ticari yapılar için
+    özgün, işlevsel ve estetik
+    mimari proje çözümleri.
+</p>
+```
+
+</div>
+
+<div class="service-card">
+
+```
+<div class="service-number">
+    02 / 06
+</div>
+
+<h4>
+    İç Mimarlık
+</h4>
+
+<p>
+    Mekânın karakterini ortaya
+    çıkaran modern ve bütünsel
+    iç mimari tasarımlar.
+</p>
+```
+
+</div>
+
+<div class="service-card">
+
+```
+<div class="service-number">
+    03 / 06
+</div>
+
+<h4>
+    3D Tasarım
+</h4>
+
+<p>
+    Projenizi uygulama öncesinde
+    gerçekçi üç boyutlu görsellerle
+    deneyimleyin.
+</p>
+```
+
+</div>
+
+<div class="service-card">
+
+```
+<div class="service-number">
+    04 / 06
+</div>
+
+<h4>
+    Uygulama
+</h4>
+
+<p>
+    Tasarımın sahaya doğru şekilde
+    aktarılması için profesyonel
+    uygulama çözümleri.
+</p>
+```
+
+</div>
+
+<div class="service-card">
+
+```
+<div class="service-number">
+    05 / 06
+</div>
+
+<h4>
+    Villa Projeleri
+</h4>
+
+<p>
+    Yaşam biçimine göre tasarlanan
+    özgün villa ve müstakil konut
+    projeleri.
+</p>
+```
+
+</div>
+
+<div class="service-card">
+
+```
+<div class="service-number">
+    06 / 06
+</div>
+
+<h4>
+    Ticari Mekânlar
+</h4>
+
+<p>
+    Marka kimliğini mekâna taşıyan
+    mağaza, ofis, restoran ve
+    ticari alan tasarımları.
+</p>
+```
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 </main>
-
 
 <!-- =====================================================
      FOOTER
@@ -1722,23 +2073,358 @@ body::before{
 
 <footer class="footer">
 
-    <div class="footer-line"></div>
+```
+<div class="footer-line"></div>
 
-    ÇAĞRI MİMARLIK · BUSINESS SMART CARD
+ÇAĞRI MİMARLIK · BUSINESS SMART CARD
+```
 
 </footer>
 
-
 </div>
 
 </div>
-
 
 <!-- =====================================================
-     PAYLAŞ JAVASCRIPT
+     TEKLİF MODALI
+===================================================== -->
+
+<div
+    class="modal"
+    id="quoteModal"
+    onclick="closeQuoteOutside(event)"
+>
+
+<div
+    class="modal-box"
+    onclick="event.stopPropagation()"
+>
+
+<div class="modal-top">
+
+```
+<div>
+
+    <div class="modal-label">
+        PROJECT INQUIRY
+    </div>
+
+    <div class="modal-title">
+        Proje Talebi
+    </div>
+
+</div>
+
+
+<button
+    class="close-modal"
+    onclick="closeQuote()"
+    aria-label="Kapat"
+>
+    ×
+</button>
+```
+
+</div>
+
+<form
+    onsubmit="sendQuote(event)"
+>
+
+<div class="form-group">
+
+```
+<label>
+    Proje Türü
+</label>
+
+<select id="projectType">
+
+    <option value="Villa / Konut">
+        Villa / Konut
+    </option>
+
+    <option value="İç Mimarlık">
+        İç Mimarlık
+    </option>
+
+    <option value="Ofis">
+        Ofis
+    </option>
+
+    <option value="Restoran / Kafe">
+        Restoran / Kafe
+    </option>
+
+    <option value="Ticari Mekân">
+        Ticari Mekân
+    </option>
+
+    <option value="Diğer">
+        Diğer
+    </option>
+
+</select>
+```
+
+</div>
+
+<div class="form-group">
+
+```
+<label>
+    Yaklaşık Alan
+</label>
+
+<input
+    type="text"
+    id="projectArea"
+    placeholder="Örn. 250 m²"
+>
+```
+
+</div>
+
+<div class="form-group">
+
+```
+<label>
+    Proje Konumu
+</label>
+
+<input
+    type="text"
+    id="projectLocation"
+    placeholder="Örn. Alanya / Antalya"
+>
+```
+
+</div>
+
+<div class="form-group">
+
+```
+<label>
+    Projeniz hakkında kısa bilgi
+</label>
+
+<textarea
+    id="projectMessage"
+    placeholder="İhtiyacınızı kısaca anlatabilirsiniz..."
+></textarea>
+```
+
+</div>
+
+<button
+class="quote-button"
+type="submit"
+
+>
+
+```
+<svg
+    class="icon"
+    viewBox="0 0 24 24"
+>
+
+    <path d="M21 3L10 14"/>
+
+    <path d="M21 3l-7 18-4-7-7-4z"/>
+
+</svg>
+
+WhatsApp ile Teklif Talebi Gönder
+```
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+     JAVASCRIPT
 ===================================================== -->
 
 <script>
+
+
+/* =====================================================
+   REHBER'E KAYDET
+===================================================== */
+
+function saveContact(event){
+
+    event.preventDefault();
+
+
+    const contact = `BEGIN:VCARD
+VERSION:3.0
+FN:Burak Çağrı
+ORG:Çağrı Mimarlık
+TEL;TYPE=CELL:+905XXXXXXXXX
+URL:https://cagri-mimarlik.com
+NOTE:Mimari Proje • İç Mimarlık • Tasarım
+END:VCARD`;
+
+
+    const blob =
+        new Blob(
+            [contact],
+            {type:"text/vcard;charset=utf-8"}
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const link =
+        document.createElement("a");
+
+
+    link.href = url;
+
+    link.download =
+        "Burak-Cagri-Cagri-Mimarlik.vcf";
+
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+
+    setTimeout(function(){
+
+        URL.revokeObjectURL(url);
+
+    },1000);
+
+}
+
+
+/* =====================================================
+   TEKLİF MODALI AÇ
+===================================================== */
+
+function openQuote(event){
+
+    event.preventDefault();
+
+    document
+        .getElementById("quoteModal")
+        .classList.add("active");
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+/* =====================================================
+   TEKLİF MODALI KAPAT
+===================================================== */
+
+function closeQuote(){
+
+    document
+        .getElementById("quoteModal")
+        .classList.remove("active");
+
+    document.body.style.overflow="";
+
+}
+
+
+function closeQuoteOutside(event){
+
+    if(
+        event.target ===
+        document.getElementById("quoteModal")
+    ){
+
+        closeQuote();
+
+    }
+
+}
+
+
+/* =====================================================
+   TEKLİFİ WHATSAPP'A GÖNDER
+===================================================== */
+
+function sendQuote(event){
+
+    event.preventDefault();
+
+
+    const type =
+        document
+        .getElementById("projectType")
+        .value;
+
+
+    const area =
+        document
+        .getElementById("projectArea")
+        .value;
+
+
+    const location =
+        document
+        .getElementById("projectLocation")
+        .value;
+
+
+    const message =
+        document
+        .getElementById("projectMessage")
+        .value;
+
+
+    const whatsappMessage =
+
+`Merhaba, Çağrı Mimarlık'tan proje teklifi almak istiyorum.
+
+Proje Türü: ${type}
+
+Yaklaşık Alan: ${area || "Belirtilmedi"}
+
+Proje Konumu: ${location || "Belirtilmedi"}
+
+Proje Detayı:
+${message || "Belirtilmedi"}
+
+Smart Kart üzerinden iletişime geçiyorum.`;
+
+
+    const whatsappURL =
+        "https://wa.me/905XXXXXXXXX?text="
+        +
+        encodeURIComponent(
+            whatsappMessage
+        );
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+
+    closeQuote();
+
+}
+
+
+/* =====================================================
+   SMART KART PAYLAŞ
+===================================================== */
 
 function shareCard(){
 
@@ -1758,36 +2444,40 @@ function shareCard(){
 
     if(navigator.share){
 
-        navigator.share(shareData)
-        .catch(() => {});
+        navigator
+            .share(shareData)
+            .catch(() => {});
 
     }
 
     else{
 
-        navigator.clipboard
-        .writeText(window.location.href)
-        .then(() => {
+        navigator
+            .clipboard
+            .writeText(
+                window.location.href
+            )
+            .then(function(){
 
-            alert(
-                "Kart bağlantısı kopyalandı."
-            );
+                alert(
+                    "Kart bağlantısı kopyalandı."
+                );
 
-        })
-        .catch(() => {
+            })
+            .catch(function(){
 
-            alert(
-                "Kart bağlantısı kopyalanamadı."
-            );
+                alert(
+                    "Kart bağlantısı kopyalanamadı."
+                );
 
-        });
+            });
 
     }
 
 }
 
-</script>
 
+</script>
 
 </body>
 </html>
