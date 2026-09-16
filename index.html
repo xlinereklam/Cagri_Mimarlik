@@ -1,697 +1,1793 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Çağrı Mimarlık | Business Smart Card</title>
-    <meta name="description" content="Çağrı Mimarlık Business Smart Card - Mimari Proje, İç Mimarlık ve Tasarım">
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            min-height: 100%;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            color: #202020;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-            background: #222;
-        }
-
-        /* =========================================
-           ARKA PLAN SLAYT GÖRSELLERİ
-        ========================================= */
-
-        .background {
-            position: fixed;
-            inset: 0;
-            z-index: -3;
-            overflow: hidden;
-            background: #222;
-        }
-
-        .bg-image {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            opacity: 0;
-            transform: scale(1.04);
-            animation: backgroundSlide 24s infinite;
-            filter: grayscale(15%);
-        }
-
-        .bg-image:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .bg-image:nth-child(2) {
-            animation-delay: 6s;
-        }
-
-        .bg-image:nth-child(3) {
-            animation-delay: 12s;
-        }
-
-        .bg-image:nth-child(4) {
-            animation-delay: 18s;
-        }
-
-        @keyframes backgroundSlide {
-
-            0% {
-                opacity: 0;
-                transform: scale(1.04);
-            }
-
-            5% {
-                opacity: 0.20;
-            }
-
-            25% {
-                opacity: 0.20;
-                transform: scale(1);
-            }
-
-            30% {
-                opacity: 0;
-                transform: scale(1.02);
-            }
-
-            100% {
-                opacity: 0;
-            }
-        }
-
-        /* Fotoğrafların üzerine gelen perde */
-
-        .background-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(15,15,15,0.78),
-                    rgba(30,30,30,0.60)
-                );
-        }
-
-        /* Hafif merkez aydınlığı */
-
-        .background-light {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(255,255,255,0.10) 0%,
-                    rgba(255,255,255,0.02) 40%,
-                    rgba(0,0,0,0.15) 100%
-                );
-            pointer-events: none;
-        }
-
-        /* =========================================
-           ANA ALAN
-        ========================================= */
-
-        .container {
-            width: 100%;
-            max-width: 500px;
-            margin: auto;
-            padding: 22px 16px 40px;
-        }
-
-        /* =========================================
-           KART
-        ========================================= */
-
-        .card {
-            background: rgba(255,255,255,0.94);
-            border: 1px solid rgba(255,255,255,0.55);
-            border-radius: 28px;
-            overflow: hidden;
-
-            box-shadow:
-                0 25px 70px rgba(0,0,0,0.30),
-                0 5px 20px rgba(0,0,0,0.15);
-
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        /* =========================================
-           HEADER
-        ========================================= */
-
-        .header {
-            position: relative;
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(20,20,20,0.97),
-                    rgba(45,45,45,0.94)
-                );
-
-            color: white;
-            text-align: center;
-            padding: 42px 24px 38px;
-
-            border-bottom: 1px solid rgba(255,255,255,0.12);
-        }
-
-        .header::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            width: 70px;
-            height: 2px;
-            transform: translateX(-50%);
-            background: rgba(255,255,255,0.65);
-        }
-
-        .logo {
-            width: 96px;
-            height: 96px;
-            border-radius: 22px;
-            background: #ffffff;
-            object-fit: contain;
-            padding: 9px;
-            margin-bottom: 20px;
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.25);
-        }
-
-        .company {
-            font-size: 27px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-        }
-
-        .subtitle {
-            margin-top: 10px;
-            font-size: 12px;
-            color: #d6d6d6;
-            letter-spacing: 2px;
-        }
-
-        /* =========================================
-           İÇERİK
-        ========================================= */
-
-        .content {
-            padding: 30px 22px 30px;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .intro h2 {
-            font-size: 21px;
-            margin-bottom: 9px;
-            color: #181818;
-        }
-
-        .intro p {
-            color: #777;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        /* =========================================
-           BUTONLAR
-        ========================================= */
-
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 11px;
-        }
-
-        .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            min-height: 54px;
-            padding: 13px 18px;
-
-            border-radius: 15px;
-
-            background: rgba(244,243,240,0.92);
-            border: 1px solid rgba(0,0,0,0.04);
-
-            color: #222;
-            text-decoration: none;
-
-            font-size: 16px;
-            font-weight: 600;
-
-            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease,
-                box-shadow 0.2s ease;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-            background: #ffffff;
-            box-shadow: 0 7px 18px rgba(0,0,0,0.08);
-        }
-
-        .button.primary {
-            background:
-                linear-gradient(
-                    135deg,
-                    #181818,
-                    #303030
-                );
-
-            color: #ffffff;
-
-            box-shadow:
-                0 7px 20px rgba(0,0,0,0.18);
-        }
-
-        .button.primary:hover {
-            background:
-                linear-gradient(
-                    135deg,
-                    #252525,
-                    #3b3b3b
-                );
-        }
-
-        /* =========================================
-           PAYLAŞ BUTONU
-        ========================================= */
-
-        .share {
-            margin-top: 18px;
-            width: 100%;
-
-            border: 1px solid #d4d1cb;
-
-            min-height: 54px;
-            border-radius: 15px;
-
-            background: rgba(255,255,255,0.55);
-
-            color: #333;
-
-            font-size: 16px;
-            font-weight: 600;
-
-            cursor: pointer;
-
-            transition:
-                0.2s ease;
-        }
-
-        .share:hover {
-            background: #ffffff;
-            transform: translateY(-2px);
-        }
-
-        /* =========================================
-           HİZMETLER
-        ========================================= */
-
-        .services {
-            margin-top: 31px;
-            padding-top: 25px;
-
-            border-top: 1px solid #e2dfd9;
-        }
-
-        .services h3 {
-            text-align: center;
-            font-size: 17px;
-            margin-bottom: 17px;
-            color: #252525;
-        }
-
-        .service-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 9px;
-        }
-
-        .service {
-            background: rgba(247,246,243,0.88);
-            border-radius: 13px;
-
-            padding: 15px 8px;
-
-            text-align: center;
-
-            font-size: 13px;
-            color: #555;
-
-            border: 1px solid rgba(0,0,0,0.025);
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease;
-        }
-
-        .service:hover {
-            transform: translateY(-2px);
-            background: #ffffff;
-        }
-
-        /* =========================================
-           FOOTER
-        ========================================= */
-
-        .footer {
-            text-align: center;
-            padding: 0 20px 25px;
-
-            color: #999;
-            font-size: 11px;
-            letter-spacing: 0.3px;
-        }
-
-        /* =========================================
-           MOBİL
-        ========================================= */
-
-        @media (max-width: 480px) {
-
-            .container {
-                padding: 12px 10px 28px;
-            }
-
-            .card {
-                border-radius: 24px;
-            }
-
-            .header {
-                padding: 35px 18px 32px;
-            }
-
-            .logo {
-                width: 88px;
-                height: 88px;
-            }
-
-            .company {
-                font-size: 23px;
-                letter-spacing: 1.2px;
-            }
-
-            .subtitle {
-                font-size: 10px;
-                letter-spacing: 1.5px;
-            }
-
-            .content {
-                padding: 27px 18px 28px;
-            }
-
-            .button,
-            .share {
-                min-height: 53px;
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 360px) {
-
-            .company {
-                font-size: 21px;
-            }
-
-            .subtitle {
-                font-size: 9px;
-            }
-
-            .button,
-            .share {
-                font-size: 15px;
-            }
-
-            .service {
-                font-size: 12px;
-            }
-        }
-
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Çağrı Mimarlık | Business Smart Card</title>
+
+<meta
+name="description"
+content="Çağrı Mimarlık - Mimari Proje, İç Mimarlık ve Tasarım"
+/>
+
+<style>
+
+/* =========================================================
+   GENEL
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:#d8d5cf;
+    color:#202020;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+}
+
+
+/* =========================================================
+   SAYFA ARKA PLANI
+========================================================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-5;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.75),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(180,175,165,.45),
+            transparent 40%
+        );
+
+}
+
+
+/* =========================================================
+   ANA KONTEYNER
+========================================================= */
+
+.container{
+
+    width:100%;
+
+    max-width:520px;
+
+    margin:auto;
+
+    padding:
+        18px
+        14px
+        45px;
+}
+
+
+/* =========================================================
+   ANA KART
+========================================================= */
+
+.card{
+
+    background:#f7f6f2;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.28),
+        0 8px 30px rgba(0,0,0,.12);
+
+    border:
+        1px solid rgba(255,255,255,.8);
+}
+
+
+/* =========================================================
+   ÜST HERO
+========================================================= */
+
+.hero{
+
+    height:445px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+}
+
+
+/* =========================================================
+   HERO SLAYTLARI
+========================================================= */
+
+.hero-slide{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:0;
+
+    transform:scale(1.08);
+
+    animation:
+        heroSlideshow
+        28s
+        infinite;
+
+    filter:
+        grayscale(18%)
+        contrast(1.03);
+}
+
+.hero-slide:nth-child(1){
+    animation-delay:0s;
+}
+
+.hero-slide:nth-child(2){
+    animation-delay:7s;
+}
+
+.hero-slide:nth-child(3){
+    animation-delay:14s;
+}
+
+.hero-slide:nth-child(4){
+    animation-delay:21s;
+}
+
+
+@keyframes heroSlideshow{
+
+    0%{
+        opacity:0;
+        transform:scale(1.08);
+    }
+
+    6%{
+        opacity:1;
+    }
+
+    25%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    31%{
+        opacity:0;
+        transform:scale(1.02);
+    }
+
+    100%{
+        opacity:0;
+    }
+
+}
+
+
+/* =========================================================
+   HERO KARARTMA
+========================================================= */
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.52) 0%,
+            rgba(0,0,0,.24) 38%,
+            rgba(0,0,0,.65) 100%
+        );
+
+    z-index:2;
+}
+
+
+/* =========================================================
+   MİMARİ ÇİZGİ DETAYLARI
+========================================================= */
+
+.hero-grid{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:3;
+
+    pointer-events:none;
+
+    opacity:.15;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.5) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.5) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        70px 70px;
+}
+
+
+/* =========================================================
+   HERO İÇERİK
+========================================================= */
+
+.hero-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:100%;
+
+    padding:
+        35px
+        25px
+        30px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+
+    width:108px;
+    height:108px;
+
+    object-fit:contain;
+
+    background:#fff;
+
+    padding:10px;
+
+    border-radius:26px;
+
+    margin-bottom:23px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
+
+    border:
+        1px solid rgba(255,255,255,.7);
+}
+
+
+/* =========================================================
+   ŞİRKET ADI
+========================================================= */
+
+.company{
+
+    font-size:29px;
+
+    font-weight:600;
+
+    letter-spacing:2.5px;
+
+    text-shadow:
+        0 3px 20px rgba(0,0,0,.45);
+}
+
+
+/* =========================================================
+   ALT BAŞLIK
+========================================================= */
+
+.subtitle{
+
+    margin-top:11px;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    color:#e7e5df;
+}
+
+
+/* =========================================================
+   BURAK ÇAĞRI
+========================================================= */
+
+.person{
+
+    margin-top:16px;
+
+    font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        "Lucida Handwriting",
+        cursive;
+
+    font-size:30px;
+
+    font-style:italic;
+
+    font-weight:400;
+
+    color:#ffffff;
+
+    letter-spacing:.5px;
+
+    text-shadow:
+        0 3px 15px rgba(0,0,0,.5);
+}
+
+
+/* =========================================================
+   HERO ALT ÇİZGİ
+========================================================= */
+
+.hero-line{
+
+    width:55px;
+
+    height:1px;
+
+    background:
+        rgba(255,255,255,.8);
+
+    margin:
+        22px
+        auto
+        0;
+}
+
+
+/* =========================================================
+   İÇ ALAN
+========================================================= */
+
+.content{
+
+    position:relative;
+
+    padding:
+        34px
+        22px
+        32px;
+
+    background:
+
+        linear-gradient(
+            rgba(250,249,246,.96),
+            rgba(244,243,239,.96)
+        );
+
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   MİMARİ GRID
+========================================================= */
+
+.content::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.12;
+
+    background-image:
+
+        linear-gradient(
+            #777 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            #777 1px,
+            transparent 1px
+        );
+
+    background-size:
+        55px 55px;
+}
+
+
+/* =========================================================
+   DEKORATİF KÖŞE
+========================================================= */
+
+.content::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100px;
+    right:-100px;
+
+    width:240px;
+    height:240px;
+
+    border:
+
+        1px solid
+        rgba(40,40,40,.10);
+
+    transform:rotate(45deg);
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:left;
+
+    margin-bottom:27px;
+
+    padding-left:15px;
+
+    border-left:
+        2px solid #3b3b3b;
+}
+
+
+.intro-small{
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    color:#999;
+
+    margin-bottom:8px;
+}
+
+
+.intro h2{
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:#222;
+
+    margin-bottom:9px;
+}
+
+
+.intro p{
+
+    color:#777;
+
+    line-height:1.65;
+
+    font-size:13px;
+
+    max-width:360px;
+}
+
+
+/* =========================================================
+   BUTONLAR
+========================================================= */
+
+.buttons{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+
+.button{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    min-height:58px;
+
+    padding:
+        12px
+        18px;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    border:
+        1px solid
+        rgba(35,35,35,.10);
+
+    color:#252525;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    letter-spacing:.15px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.05);
+
+    transition:
+        all .25s ease;
+
+    overflow:hidden;
+}
+
+
+/* Sol mimari çizgi */
+
+.button::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    bottom:0;
+
+    width:3px;
+
+    background:#303030;
+
+    transform:
+        scaleY(0);
+
+    transform-origin:center;
+
+    transition:.25s ease;
+}
+
+
+/* Sağ ok */
+
+.button::after{
+
+    content:"↗";
+
+    font-size:17px;
+
+    color:#888;
+
+    transition:.25s ease;
+}
+
+
+.button:hover{
+
+    transform:
+        translateX(3px);
+
+    background:#fff;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.09);
+}
+
+
+.button:hover::before{
+
+    transform:
+        scaleY(1);
+}
+
+
+.button:hover::after{
+
+    transform:
+        translate(3px,-3px);
+
+    color:#222;
+}
+
+
+/* ANA BUTON */
+
+.button.primary{
+
+    background:
+        linear-gradient(
+            135deg,
+            #191919,
+            #363636
+        );
+
+    color:white;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.20);
+}
+
+
+.button.primary::before{
+
+    background:#fff;
+}
+
+
+.button.primary::after{
+
+    color:#ccc;
+}
+
+
+/* =========================================================
+   PAYLAŞ
+========================================================= */
+
+.share{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:17px;
+
+    width:100%;
+
+    min-height:56px;
+
+    border-radius:15px;
+
+    border:
+        1px solid
+        rgba(40,40,40,.20);
+
+    background:
+        rgba(255,255,255,.45);
+
+    color:#333;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+
+.share:hover{
+
+    background:#fff;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.08);
+}
+
+
+/* =========================================================
+   HİZMETLER BAŞLIK
+========================================================= */
+
+.services{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:38px;
+
+    padding-top:27px;
+
+    border-top:
+        1px solid
+        rgba(40,40,40,.13);
+}
+
+
+.services-heading{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    margin-bottom:18px;
+}
+
+
+.services-heading-left{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+}
+
+
+.services-label{
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:#999;
+}
+
+
+.services-title{
+
+    font-size:21px;
+
+    font-weight:600;
+
+    color:#222;
+}
+
+
+.services-count{
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    color:#999;
+}
+
+
+/* =========================================================
+   HİZMET SLIDER
+========================================================= */
+
+.services-window{
+
+    position:relative;
+
+    overflow:hidden;
+
+    margin:
+        0 -22px;
+
+    padding:
+        4px 22px 15px;
+}
+
+
+.services-track{
+
+    display:flex;
+
+    gap:13px;
+
+    width:max-content;
+
+    animation:
+        serviceSlide
+        28s
+        linear
+        infinite;
+}
+
+
+.services-track:hover{
+
+    animation-play-state:paused;
+}
+
+
+@keyframes serviceSlide{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-50%);
+    }
+
+}
+
+
+/* =========================================================
+   HİZMET KARTI
+========================================================= */
+
+.service-card{
+
+    width:245px;
+
+    min-height:155px;
+
+    flex-shrink:0;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:23px 21px;
+
+    border-radius:19px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292929,
+            #171717
+        );
+
+    color:#fff;
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.17);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+
+/* Hizmet numarası */
+
+.service-number{
+
+    position:absolute;
+
+    top:16px;
+
+    right:18px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:#999;
+}
+
+
+/* Dekoratif mimari çizgi */
+
+.service-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    right:-35px;
+
+    bottom:-45px;
+
+    width:130px;
+    height:130px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    transform:rotate(45deg);
+}
+
+
+.service-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:35px;
+
+    bottom:35px;
+
+    width:50px;
+
+    height:1px;
+
+    background:
+        rgba(255,255,255,.25);
+}
+
+
+.service-card h4{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    margin-top:27px;
+
+    margin-bottom:10px;
+
+    letter-spacing:.2px;
+}
+
+
+.service-card p{
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    color:#bcbcbc;
+
+    max-width:190px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    padding:
+        0
+        20px
+        27px;
+
+    color:#999;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   ALT MARKA ÇİZGİSİ
+========================================================= */
+
+.footer-line{
+
+    width:35px;
+
+    height:1px;
+
+    background:#bbb;
+
+    margin:
+        0
+        auto
+        12px;
+}
+
+
+/* =========================================================
+   MOBİL
+========================================================= */
+
+@media(max-width:480px){
+
+    .container{
+
+        padding:
+            8px
+            7px
+            30px;
+    }
+
+
+    .card{
+
+        border-radius:25px;
+    }
+
+
+    .hero{
+
+        height:410px;
+    }
+
+
+    .logo{
+
+        width:94px;
+        height:94px;
+
+        border-radius:23px;
+    }
+
+
+    .company{
+
+        font-size:24px;
+
+        letter-spacing:1.8px;
+    }
+
+
+    .subtitle{
+
+        font-size:9px;
+
+        letter-spacing:2.3px;
+    }
+
+
+    .person{
+
+        font-size:28px;
+    }
+
+
+    .content{
+
+        padding:
+            30px
+            18px
+            28px;
+    }
+
+
+    .services-window{
+
+        margin:
+            0 -18px;
+
+        padding-left:18px;
+        padding-right:18px;
+    }
+
+
+    .service-card{
+
+        width:230px;
+
+        min-height:150px;
+    }
+
+}
+
+
+@media(max-width:360px){
+
+    .hero{
+
+        height:390px;
+    }
+
+
+    .company{
+
+        font-size:21px;
+    }
+
+
+    .subtitle{
+
+        font-size:8px;
+
+        letter-spacing:1.8px;
+    }
+
+
+    .person{
+
+        font-size:25px;
+    }
+
+
+    .button{
+
+        min-height:54px;
+
+        font-size:14px;
+    }
+
+
+    .service-card{
+
+        width:215px;
+    }
+
+}
+
+
+/* =========================================================
+   HAREKET AZALTMA
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .hero-slide,
+    .services-track{
+
+        animation:none;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <!-- ARKA PLAN PROJE FOTOĞRAFLARI -->
 
-    <div class="background">
+<div class="container">
+
+<div class="card">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero">
+
+
+    <!-- PROJE GÖRSELLERİ -->
+
+    <img
+        class="hero-slide"
+        src="assets/cagri01.png"
+        alt=""
+    >
+
+    <img
+        class="hero-slide"
+        src="assets/cagri02.png"
+        alt=""
+    >
+
+    <img
+        class="hero-slide"
+        src="assets/cagri03.png"
+        alt=""
+    >
+
+    <img
+        class="hero-slide"
+        src="assets/cagri04.png"
+        alt=""
+    >
+
+
+    <!-- KARARTMA -->
+
+    <div class="hero-overlay"></div>
+
+
+    <!-- MİMARİ GRID -->
+
+    <div class="hero-grid"></div>
+
+
+    <!-- HERO İÇERİK -->
+
+    <div class="hero-content">
+
 
         <img
-            class="bg-image"
-            src="assets/cagri01.png"
-            alt=""
+            class="logo"
+            src="assets/cagri-mimarlik-logo.png"
+            alt="Çağrı Mimarlık Logo"
         >
 
-        <img
-            class="bg-image"
-            src="assets/cagri02.png"
-            alt=""
-        >
 
-        <img
-            class="bg-image"
-            src="assets/cagri03.png"
-            alt=""
-        >
+        <div class="company">
 
-        <img
-            class="bg-image"
-            src="assets/cagri04.png"
-            alt=""
-        >
-
-    </div>
-
-    <div class="background-overlay"></div>
-    <div class="background-light"></div>
-
-
-    <!-- ANA KART -->
-
-    <div class="container">
-
-        <div class="card">
-
-            <!-- HEADER -->
-
-            <header class="header">
-
-                <img
-                    class="logo"
-                    src="assets/cagri-mimarlik-logo.png"
-                    alt="Çağrı Mimarlık Logo"
-                >
-
-                <div class="company">
-                    ÇAĞRI MİMARLIK
-                </div>
-
-                <div class="subtitle">
-                    ARCHITECTURE • INTERIOR • DESIGN
-                </div>
-
-            </header>
-
-
-            <!-- İÇERİK -->
-
-            <main class="content">
-
-                <section class="intro">
-
-                    <h2>
-                        Çağrı Mimarlık
-                    </h2>
-
-                    <p>
-                        Mimari proje, iç mimarlık ve tasarım
-                        çözümleri.
-                    </p>
-
-                </section>
-
-
-                <!-- BUTONLAR -->
-
-                <section class="buttons">
-
-                    <a
-                        class="button primary"
-                        href="tel:+905XXXXXXXXX"
-                    >
-                        📞 Hemen Ara
-                    </a>
-
-                    <a
-                        class="button"
-                        href="https://wa.me/905XXXXXXXXX"
-                        target="_blank"
-                    >
-                        💬 WhatsApp
-                    </a>
-
-                    <a
-                        class="button"
-                        href="#"
-                        target="_blank"
-                    >
-                        📍 Konum
-                    </a>
-
-                    <a
-                        class="button"
-                        href="#"
-                        target="_blank"
-                    >
-                        🌐 Web Sitesi
-                    </a>
-
-                    <a
-                        class="button"
-                        href="#"
-                        target="_blank"
-                    >
-                        📸 Instagram
-                    </a>
-
-                    <a
-                        class="button"
-                        href="#"
-                        target="_blank"
-                    >
-                        📁 Projelerimizi İncele
-                    </a>
-
-                </section>
-
-
-                <!-- SMART KART PAYLAŞ -->
-
-                <button
-                    class="share"
-                    onclick="shareCard()"
-                >
-                    🔗 Smart Kartı Paylaş
-                </button>
-
-
-                <!-- HİZMETLER -->
-
-                <section class="services">
-
-                    <h3>
-                        Hizmetler
-                    </h3>
-
-                    <div class="service-list">
-
-                        <div class="service">
-                            Mimari Proje
-                        </div>
-
-                        <div class="service">
-                            İç Mimarlık
-                        </div>
-
-                        <div class="service">
-                            3D Tasarım
-                        </div>
-
-                        <div class="service">
-                            Uygulama
-                        </div>
-
-                        <div class="service">
-                            Villa Projeleri
-                        </div>
-
-                        <div class="service">
-                            Ticari Mekânlar
-                        </div>
-
-                    </div>
-
-                </section>
-
-            </main>
-
-
-            <!-- FOOTER -->
-
-            <footer class="footer">
-                Çağrı Mimarlık Business Smart Card
-            </footer>
+            ÇAĞRI MİMARLIK
 
         </div>
 
+
+        <div class="subtitle">
+
+            ARCHITECTURE • INTERIOR • DESIGN
+
+        </div>
+
+
+        <div class="person">
+
+            Burak Çağrı
+
+        </div>
+
+
+        <div class="hero-line"></div>
+
+
     </div>
 
+</header>
 
-    <!-- PAYLAŞ FONKSİYONU -->
 
-    <script>
+<!-- =====================================================
+     İÇERİK
+===================================================== -->
 
-        function shareCard() {
+<main class="content">
 
-            const shareData = {
-                title: "Çağrı Mimarlık",
-                text: "Çağrı Mimarlık Business Smart Card",
-                url: window.location.href
-            };
 
-            if (navigator.share) {
+    <!-- INTRO -->
 
-                navigator.share(shareData).catch(() => {});
+    <section class="intro">
 
-            } else {
+        <div class="intro-small">
 
-                navigator.clipboard
-                    .writeText(window.location.href)
-                    .then(() => {
+            ABOUT THE STUDIO
 
-                        alert("Kart bağlantısı kopyalandı.");
+        </div>
 
-                    })
-                    .catch(() => {
 
-                        alert("Kart bağlantısı kopyalanamadı.");
+        <h2>
 
-                    });
+            Mekâna Değer Katan Tasarım
 
-            }
+        </h2>
 
-        }
 
-    </script>
+        <p>
+
+            Mimari proje, iç mimarlık ve uygulama
+            süreçlerini estetik, işlevsellik ve
+            özgün tasarım anlayışıyla bir araya getiriyoruz.
+
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         BUTONLAR
+    ================================================= -->
+
+    <section class="buttons">
+
+
+        <a
+            class="button primary"
+            href="tel:+905XXXXXXXXX"
+        >
+
+            <span>📞 &nbsp; Hemen Ara</span>
+
+        </a>
+
+
+        <a
+            class="button"
+            href="https://wa.me/905XXXXXXXXX"
+            target="_blank"
+        >
+
+            <span>💬 &nbsp; WhatsApp</span>
+
+        </a>
+
+
+        <a
+            class="button"
+            href="#"
+            target="_blank"
+        >
+
+            <span>📍 &nbsp; Konum</span>
+
+        </a>
+
+
+        <a
+            class="button"
+            href="#"
+            target="_blank"
+        >
+
+            <span>🌐 &nbsp; Web Sitesi</span>
+
+        </a>
+
+
+        <a
+            class="button"
+            href="#"
+            target="_blank"
+        >
+
+            <span>📸 &nbsp; Instagram</span>
+
+        </a>
+
+
+        <a
+            class="button"
+            href="#"
+            target="_blank"
+        >
+
+            <span>📁 &nbsp; Projelerimizi İncele</span>
+
+        </a>
+
+
+    </section>
+
+
+    <!-- =================================================
+         PAYLAŞ
+    ================================================= -->
+
+    <button
+        class="share"
+        onclick="shareCard()"
+    >
+
+        🔗 &nbsp; Smart Kartı Paylaş
+
+    </button>
+
+
+    <!-- =================================================
+         HİZMETLER
+    ================================================= -->
+
+    <section class="services">
+
+
+        <div class="services-heading">
+
+
+            <div class="services-heading-left">
+
+                <div class="services-label">
+
+                    WHAT WE DO
+
+                </div>
+
+
+                <div class="services-title">
+
+                    Hizmetlerimiz
+
+                </div>
+
+            </div>
+
+
+            <div class="services-count">
+
+                06 SERVICES
+
+            </div>
+
+
+        </div>
+
+
+        <!-- HİZMET SLIDER -->
+
+        <div class="services-window">
+
+
+            <div class="services-track">
+
+
+                <!-- 01 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        01 / 06
+                    </div>
+
+                    <h4>
+                        Mimari Proje
+                    </h4>
+
+                    <p>
+                        Konut ve ticari yapılar için
+                        özgün, işlevsel ve estetik
+                        mimari proje çözümleri.
+                    </p>
+
+                </div>
+
+
+                <!-- 02 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        02 / 06
+                    </div>
+
+                    <h4>
+                        İç Mimarlık
+                    </h4>
+
+                    <p>
+                        Mekânın karakterini ortaya
+                        çıkaran modern ve bütünsel
+                        iç mimari tasarımlar.
+                    </p>
+
+                </div>
+
+
+                <!-- 03 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        03 / 06
+                    </div>
+
+                    <h4>
+                        3D Tasarım
+                    </h4>
+
+                    <p>
+                        Projenizi uygulama öncesinde
+                        gerçekçi üç boyutlu görsellerle
+                        deneyimleyin.
+                    </p>
+
+                </div>
+
+
+                <!-- 04 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        04 / 06
+                    </div>
+
+                    <h4>
+                        Uygulama
+                    </h4>
+
+                    <p>
+                        Tasarımın sahaya doğru şekilde
+                        aktarılması için profesyonel
+                        uygulama çözümleri.
+                    </p>
+
+                </div>
+
+
+                <!-- 05 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        05 / 06
+                    </div>
+
+                    <h4>
+                        Villa Projeleri
+                    </h4>
+
+                    <p>
+                        Yaşam biçimine göre tasarlanan
+                        özgün villa ve müstakil konut
+                        projeleri.
+                    </p>
+
+                </div>
+
+
+                <!-- 06 -->
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        06 / 06
+                    </div>
+
+                    <h4>
+                        Ticari Mekânlar
+                    </h4>
+
+                    <p>
+                        Marka kimliğini mekâna taşıyan
+                        mağaza, ofis, restoran ve
+                        ticari alan tasarımları.
+                    </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     SLIDERIN KESİNTİSİZ DEVAMI İÇİN TEKRAR
+                ================================================= -->
+
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        01 / 06
+                    </div>
+
+                    <h4>
+                        Mimari Proje
+                    </h4>
+
+                    <p>
+                        Konut ve ticari yapılar için
+                        özgün, işlevsel ve estetik
+                        mimari proje çözümleri.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        02 / 06
+                    </div>
+
+                    <h4>
+                        İç Mimarlık
+                    </h4>
+
+                    <p>
+                        Mekânın karakterini ortaya
+                        çıkaran modern ve bütünsel
+                        iç mimari tasarımlar.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        03 / 06
+                    </div>
+
+                    <h4>
+                        3D Tasarım
+                    </h4>
+
+                    <p>
+                        Projenizi uygulama öncesinde
+                        gerçekçi üç boyutlu görsellerle
+                        deneyimleyin.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        04 / 06
+                    </div>
+
+                    <h4>
+                        Uygulama
+                    </h4>
+
+                    <p>
+                        Tasarımın sahaya doğru şekilde
+                        aktarılması için profesyonel
+                        uygulama çözümleri.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        05 / 06
+                    </div>
+
+                    <h4>
+                        Villa Projeleri
+                    </h4>
+
+                    <p>
+                        Yaşam biçimine göre tasarlanan
+                        özgün villa ve müstakil konut
+                        projeleri.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-number">
+                        06 / 06
+                    </div>
+
+                    <h4>
+                        Ticari Mekânlar
+                    </h4>
+
+                    <p>
+                        Marka kimliğini mekâna taşıyan
+                        mağaza, ofis, restoran ve
+                        ticari alan tasarımları.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-line"></div>
+
+    ÇAĞRI MİMARLIK · BUSINESS SMART CARD
+
+</footer>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     PAYLAŞ JAVASCRIPT
+===================================================== -->
+
+<script>
+
+function shareCard(){
+
+    const shareData = {
+
+        title:
+            "Çağrı Mimarlık",
+
+        text:
+            "Çağrı Mimarlık Business Smart Card",
+
+        url:
+            window.location.href
+
+    };
+
+
+    if(navigator.share){
+
+        navigator.share(shareData)
+        .catch(() => {});
+
+    }
+
+    else{
+
+        navigator.clipboard
+        .writeText(window.location.href)
+        .then(() => {
+
+            alert(
+                "Kart bağlantısı kopyalandı."
+            );
+
+        })
+        .catch(() => {
+
+            alert(
+                "Kart bağlantısı kopyalanamadı."
+            );
+
+        });
+
+    }
+
+}
+
+</script>
+
 
 </body>
 </html>
