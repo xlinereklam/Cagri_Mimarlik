@@ -14,59 +14,208 @@
             padding: 0;
         }
 
+        html {
+            min-height: 100%;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f3f1ed;
             color: #202020;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            background: #222;
         }
+
+        /* =========================================
+           ARKA PLAN SLAYT GÖRSELLERİ
+        ========================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            overflow: hidden;
+            background: #222;
+        }
+
+        .bg-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transform: scale(1.04);
+            animation: backgroundSlide 24s infinite;
+            filter: grayscale(15%);
+        }
+
+        .bg-image:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .bg-image:nth-child(2) {
+            animation-delay: 6s;
+        }
+
+        .bg-image:nth-child(3) {
+            animation-delay: 12s;
+        }
+
+        .bg-image:nth-child(4) {
+            animation-delay: 18s;
+        }
+
+        @keyframes backgroundSlide {
+
+            0% {
+                opacity: 0;
+                transform: scale(1.04);
+            }
+
+            5% {
+                opacity: 0.20;
+            }
+
+            25% {
+                opacity: 0.20;
+                transform: scale(1);
+            }
+
+            30% {
+                opacity: 0;
+                transform: scale(1.02);
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Fotoğrafların üzerine gelen perde */
+
+        .background-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(15,15,15,0.78),
+                    rgba(30,30,30,0.60)
+                );
+        }
+
+        /* Hafif merkez aydınlığı */
+
+        .background-light {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255,255,255,0.10) 0%,
+                    rgba(255,255,255,0.02) 40%,
+                    rgba(0,0,0,0.15) 100%
+                );
+            pointer-events: none;
+        }
+
+        /* =========================================
+           ANA ALAN
+        ========================================= */
 
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 500px;
             margin: auto;
-            padding: 24px 18px 40px;
+            padding: 22px 16px 40px;
         }
+
+        /* =========================================
+           KART
+        ========================================= */
 
         .card {
-            background: #ffffff;
+            background: rgba(255,255,255,0.94);
+            border: 1px solid rgba(255,255,255,0.55);
             border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.10);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.30),
+                0 5px 20px rgba(0,0,0,0.15);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
+        /* =========================================
+           HEADER
+        ========================================= */
+
         .header {
-            background: #1e1e1e;
+            position: relative;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(20,20,20,0.97),
+                    rgba(45,45,45,0.94)
+                );
+
             color: white;
             text-align: center;
-            padding: 42px 24px 36px;
+            padding: 42px 24px 38px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 70px;
+            height: 2px;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.65);
         }
 
         .logo {
-            width: 92px;
-            height: 92px;
-            border-radius: 20px;
+            width: 96px;
+            height: 96px;
+            border-radius: 22px;
             background: #ffffff;
             object-fit: contain;
-            padding: 10px;
+            padding: 9px;
             margin-bottom: 20px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.25);
         }
 
         .company {
-            font-size: 26px;
+            font-size: 27px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .subtitle {
-            margin-top: 9px;
-            font-size: 13px;
-            color: #cfcfcf;
-            letter-spacing: 1px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #d6d6d6;
+            letter-spacing: 2px;
         }
 
+        /* =========================================
+           İÇERİK
+        ========================================= */
+
         .content {
-            padding: 28px 22px 30px;
+            padding: 30px 22px 30px;
         }
 
         .intro {
@@ -75,8 +224,9 @@
         }
 
         .intro h2 {
-            font-size: 20px;
+            font-size: 21px;
             margin-bottom: 9px;
+            color: #181818;
         }
 
         .intro p {
@@ -84,6 +234,10 @@
             line-height: 1.6;
             font-size: 14px;
         }
+
+        /* =========================================
+           BUTONLAR
+        ========================================= */
 
         .buttons {
             display: flex;
@@ -95,55 +249,105 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 52px;
+
+            min-height: 54px;
             padding: 13px 18px;
-            border-radius: 14px;
-            background: #f1f0ed;
+
+            border-radius: 15px;
+
+            background: rgba(244,243,240,0.92);
+            border: 1px solid rgba(0,0,0,0.04);
+
             color: #222;
             text-decoration: none;
+
             font-size: 16px;
             font-weight: 600;
-            transition: 0.2s ease;
+
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .button:hover {
             transform: translateY(-2px);
-            background: #e7e5e0;
+            background: #ffffff;
+            box-shadow: 0 7px 18px rgba(0,0,0,0.08);
         }
 
         .button.primary {
-            background: #1e1e1e;
+            background:
+                linear-gradient(
+                    135deg,
+                    #181818,
+                    #303030
+                );
+
             color: #ffffff;
+
+            box-shadow:
+                0 7px 20px rgba(0,0,0,0.18);
         }
 
         .button.primary:hover {
-            background: #333333;
+            background:
+                linear-gradient(
+                    135deg,
+                    #252525,
+                    #3b3b3b
+                );
         }
+
+        /* =========================================
+           PAYLAŞ BUTONU
+        ========================================= */
 
         .share {
             margin-top: 18px;
             width: 100%;
-            border: 0;
-            min-height: 52px;
-            border-radius: 14px;
-            background: transparent;
-            border: 1px solid #d7d4ce;
+
+            border: 1px solid #d4d1cb;
+
+            min-height: 54px;
+            border-radius: 15px;
+
+            background: rgba(255,255,255,0.55);
+
             color: #333;
+
             font-size: 16px;
             font-weight: 600;
+
             cursor: pointer;
+
+            transition:
+                0.2s ease;
         }
 
+        .share:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* =========================================
+           HİZMETLER
+        ========================================= */
+
         .services {
-            margin-top: 30px;
-            padding-top: 24px;
-            border-top: 1px solid #e5e2dc;
+            margin-top: 31px;
+            padding-top: 25px;
+
+            border-top: 1px solid #e2dfd9;
         }
 
         .services h3 {
             text-align: center;
             font-size: 17px;
             margin-bottom: 17px;
+            color: #252525;
         }
 
         .service-list {
@@ -153,190 +357,341 @@
         }
 
         .service {
-            background: #f7f6f3;
-            border-radius: 12px;
-            padding: 14px 8px;
+            background: rgba(247,246,243,0.88);
+            border-radius: 13px;
+
+            padding: 15px 8px;
+
             text-align: center;
+
             font-size: 13px;
             color: #555;
+
+            border: 1px solid rgba(0,0,0,0.025);
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
         }
+
+        .service:hover {
+            transform: translateY(-2px);
+            background: #ffffff;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
 
         .footer {
             text-align: center;
             padding: 0 20px 25px;
+
             color: #999;
             font-size: 11px;
+            letter-spacing: 0.3px;
+        }
+
+        /* =========================================
+           MOBİL
+        ========================================= */
+
+        @media (max-width: 480px) {
+
+            .container {
+                padding: 12px 10px 28px;
+            }
+
+            .card {
+                border-radius: 24px;
+            }
+
+            .header {
+                padding: 35px 18px 32px;
+            }
+
+            .logo {
+                width: 88px;
+                height: 88px;
+            }
+
+            .company {
+                font-size: 23px;
+                letter-spacing: 1.2px;
+            }
+
+            .subtitle {
+                font-size: 10px;
+                letter-spacing: 1.5px;
+            }
+
+            .content {
+                padding: 27px 18px 28px;
+            }
+
+            .button,
+            .share {
+                min-height: 53px;
+                font-size: 16px;
+            }
         }
 
         @media (max-width: 360px) {
+
             .company {
-                font-size: 23px;
+                font-size: 21px;
             }
 
-            .button {
+            .subtitle {
+                font-size: 9px;
+            }
+
+            .button,
+            .share {
                 font-size: 15px;
             }
+
+            .service {
+                font-size: 12px;
+            }
         }
+
     </style>
 </head>
 
 <body>
 
-<div class="container">
+    <!-- ARKA PLAN PROJE FOTOĞRAFLARI -->
 
-    <div class="card">
+    <div class="background">
 
-        <header class="header">
+        <img
+            class="bg-image"
+            src="assets/cagri01.png"
+            alt=""
+        >
 
-            <img
-                class="logo"
-                src="assets/cagri-mimarlik-logo.png"
-                alt="Çağrı Mimarlık Logo"
-            >
+        <img
+            class="bg-image"
+            src="assets/cagri02.png"
+            alt=""
+        >
 
-            <div class="company">
-                ÇAĞRI MİMARLIK
-            </div>
+        <img
+            class="bg-image"
+            src="assets/cagri03.png"
+            alt=""
+        >
 
-            <div class="subtitle">
-                ARCHITECTURE • INTERIOR • DESIGN
-            </div>
-
-        </header>
-
-        <main class="content">
-
-            <section class="intro">
-
-                <h2>Çağrı Mimarlık</h2>
-
-                <p>
-                    Mimari proje, iç mimarlık ve tasarım
-                    çözümleri.
-                </p>
-
-            </section>
-
-            <section class="buttons">
-
-                <a class="button primary" href="tel:+905XXXXXXXXX">
-                    📞 Hemen Ara
-                </a>
-
-                <a
-                    class="button"
-                    href="https://wa.me/905XXXXXXXXX"
-                    target="_blank"
-                >
-                    💬 WhatsApp
-                </a>
-
-                <a
-                    class="button"
-                    href="#"
-                    target="_blank"
-                >
-                    📍 Konum
-                </a>
-
-                <a
-                    class="button"
-                    href="#"
-                    target="_blank"
-                >
-                    🌐 Web Sitesi
-                </a>
-
-                <a
-                    class="button"
-                    href="#"
-                    target="_blank"
-                >
-                    📸 Instagram
-                </a>
-
-                <a
-                    class="button"
-                    href="#"
-                    target="_blank"
-                >
-                    📁 Projelerimizi İncele
-                </a>
-
-            </section>
-
-            <button class="share" onclick="shareCard()">
-                🔗 Smart Kartı Paylaş
-            </button>
-
-            <section class="services">
-
-                <h3>Hizmetler</h3>
-
-                <div class="service-list">
-
-                    <div class="service">
-                        Mimari Proje
-                    </div>
-
-                    <div class="service">
-                        İç Mimarlık
-                    </div>
-
-                    <div class="service">
-                        3D Tasarım
-                    </div>
-
-                    <div class="service">
-                        Uygulama
-                    </div>
-
-                    <div class="service">
-                        Villa Projeleri
-                    </div>
-
-                    <div class="service">
-                        Ticari Mekânlar
-                    </div>
-
-                </div>
-
-            </section>
-
-        </main>
-
-        <footer class="footer">
-            Çağrı Mimarlık Business Smart Card
-        </footer>
+        <img
+            class="bg-image"
+            src="assets/cagri04.png"
+            alt=""
+        >
 
     </div>
 
-</div>
+    <div class="background-overlay"></div>
+    <div class="background-light"></div>
 
-<script>
 
-function shareCard() {
+    <!-- ANA KART -->
 
-    const shareData = {
-        title: "Çağrı Mimarlık",
-        text: "Çağrı Mimarlık Business Smart Card",
-        url: window.location.href
-    };
+    <div class="container">
 
-    if (navigator.share) {
+        <div class="card">
 
-        navigator.share(shareData).catch(() => {});
+            <!-- HEADER -->
 
-    } else {
+            <header class="header">
 
-        navigator.clipboard.writeText(window.location.href);
+                <img
+                    class="logo"
+                    src="assets/cagri-mimarlik-logo.png"
+                    alt="Çağrı Mimarlık Logo"
+                >
 
-        alert("Kart bağlantısı kopyalandı.");
+                <div class="company">
+                    ÇAĞRI MİMARLIK
+                </div>
 
-    }
-}
+                <div class="subtitle">
+                    ARCHITECTURE • INTERIOR • DESIGN
+                </div>
 
-</script>
+            </header>
+
+
+            <!-- İÇERİK -->
+
+            <main class="content">
+
+                <section class="intro">
+
+                    <h2>
+                        Çağrı Mimarlık
+                    </h2>
+
+                    <p>
+                        Mimari proje, iç mimarlık ve tasarım
+                        çözümleri.
+                    </p>
+
+                </section>
+
+
+                <!-- BUTONLAR -->
+
+                <section class="buttons">
+
+                    <a
+                        class="button primary"
+                        href="tel:+905XXXXXXXXX"
+                    >
+                        📞 Hemen Ara
+                    </a>
+
+                    <a
+                        class="button"
+                        href="https://wa.me/905XXXXXXXXX"
+                        target="_blank"
+                    >
+                        💬 WhatsApp
+                    </a>
+
+                    <a
+                        class="button"
+                        href="#"
+                        target="_blank"
+                    >
+                        📍 Konum
+                    </a>
+
+                    <a
+                        class="button"
+                        href="#"
+                        target="_blank"
+                    >
+                        🌐 Web Sitesi
+                    </a>
+
+                    <a
+                        class="button"
+                        href="#"
+                        target="_blank"
+                    >
+                        📸 Instagram
+                    </a>
+
+                    <a
+                        class="button"
+                        href="#"
+                        target="_blank"
+                    >
+                        📁 Projelerimizi İncele
+                    </a>
+
+                </section>
+
+
+                <!-- SMART KART PAYLAŞ -->
+
+                <button
+                    class="share"
+                    onclick="shareCard()"
+                >
+                    🔗 Smart Kartı Paylaş
+                </button>
+
+
+                <!-- HİZMETLER -->
+
+                <section class="services">
+
+                    <h3>
+                        Hizmetler
+                    </h3>
+
+                    <div class="service-list">
+
+                        <div class="service">
+                            Mimari Proje
+                        </div>
+
+                        <div class="service">
+                            İç Mimarlık
+                        </div>
+
+                        <div class="service">
+                            3D Tasarım
+                        </div>
+
+                        <div class="service">
+                            Uygulama
+                        </div>
+
+                        <div class="service">
+                            Villa Projeleri
+                        </div>
+
+                        <div class="service">
+                            Ticari Mekânlar
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+
+            <!-- FOOTER -->
+
+            <footer class="footer">
+                Çağrı Mimarlık Business Smart Card
+            </footer>
+
+        </div>
+
+    </div>
+
+
+    <!-- PAYLAŞ FONKSİYONU -->
+
+    <script>
+
+        function shareCard() {
+
+            const shareData = {
+                title: "Çağrı Mimarlık",
+                text: "Çağrı Mimarlık Business Smart Card",
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+
+                navigator.share(shareData).catch(() => {});
+
+            } else {
+
+                navigator.clipboard
+                    .writeText(window.location.href)
+                    .then(() => {
+
+                        alert("Kart bağlantısı kopyalandı.");
+
+                    })
+                    .catch(() => {
+
+                        alert("Kart bağlantısı kopyalanamadı.");
+
+                    });
+
+            }
+
+        }
+
+    </script>
 
 </body>
 </html>
